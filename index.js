@@ -80,3 +80,38 @@ console.log(newArray[3]());
     }, 100);
   }
   countDown(10);
+
+// 5
+
+function myBind(context) {
+    var self = this;
+    var r = function() {
+       return self.apply(context,arguments);
+    }
+    return r;
+  }
+
+ Function.prototype.myBind = myBind;
+
+  function addPropToNumber(number) {
+    return this.prop + number;
+  }
+
+  var bound = addPropToNumber.myBind({ prop: 9 });
+  console.log(bound(1)); // 10
+
+
+// второй вариант
+  /*var myBind = function(fn, prop) {
+    return function() {
+      var fnArgs = [].slice.call(arguments);
+      return fn.apply(prop, fnArgs);
+    }
+  }
+
+  function addPropToNumber(number) {
+    return this.prop + number;
+  }
+
+  var bound = myBind(addPropToNumber, { prop: 9 });
+  console.log(bound(10)); */
