@@ -1,41 +1,17 @@
 // 1 - largest and smallest
-
-// первый вариант
-/*function largest() {
-	let largest = 0;
-	for (let i = 0; i < arguments.length - 1; i++) {
-		if(arguments[i] > largest) {
-			largest = arguments[i];
-		}
-	}
-	return largest;
-}
-console.log(largest(2, 0.1, -5, 100, 3)) // 100
-*/
-/* function smallest() {
-	let smallest = 0;
-	for(let i = 0; i < arguments.length - 1; i++) {
-		if(arguments[i] < smallest) {
-			smallest = arguments[i];
-		}
-	}
-	return smallest;
-}
-console.log(smallest(2, 0.1, -5, 100, 3));
-*/
-
-// второй вариант
-const smallest = (...arg) => console.log(Math.min(...arg));
+const smallest = (...arg) => (Math.min(...arg));
 smallest(2, 0.1, -5, 100, 3);
 
-const largest = (...arg) => console.log(Math.max(...arg));
+const largest = (...arg) => (Math.max(...arg));
 largest(2, 0.1, -5, 100, 3);
+
 
 // 2 - transform
 const transform = arr => arr.map(i => () => i);
 const baseArray = [10, 20, 30, 40, 50];
 const newArray = transform(baseArray);
 console.log(newArray[3]());
+
 
 // 3 - sum
 // первый пример
