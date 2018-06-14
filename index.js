@@ -46,19 +46,26 @@ console.log(newArray[3]());
   }
   console.log(sumRecurcion(1,2,3,2));
 
+
   // 4 - countDown
   function countDown(n) {
     var i = n;
     var timerId = setTimeout(function go() {
       console.log(i);
-      if (i > 0) setTimeout(go, 1000);
-      i--;
-    }, 100);
+      if (i > 0) {
+        setTimeout(go, 1000);
+        i--;
+      }
+      if(i < 0) {
+        setTimeout(go, 1000);
+        i++;
+      }
+    }, 1000);
   }
   countDown(10);
 
-// 5
 
+// 5
 function myBind(context) {
     var self = this;
     var r = function() {
